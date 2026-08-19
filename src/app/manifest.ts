@@ -4,11 +4,11 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: '틈틈',
     short_name: '틈틈',
-    description: '안녕하세요틈틈입니다잘부탁드립니다',
+    description: '틈틈',
     start_url: '/',
     display: 'standalone',
-    background_color: '#ffffff',
-    theme_color: '#000000',
+    background_color: '#111224',
+    theme_color: '#111224',
     icons: [
       {
         src: '/logo-192.png',

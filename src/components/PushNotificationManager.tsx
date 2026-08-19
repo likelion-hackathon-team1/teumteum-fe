@@ -45,18 +45,22 @@ export function PushNotificationManager() {
   }
 
   if (!isSupported) {
-    return <p>이 브라우저는 푸시 알림을 지원하지 않습니다.</p>;
+    return <p className="tt-body-sm tt-text-muted">이 브라우저는 푸시 알림을 지원하지 않습니다.</p>;
   }
 
   return (
-    <div>
+    <div className="tt-flex-col tt-gap-3">
       {subscription ? (
         <>
-          <p>알림이 활성화되어 있습니다.</p>
-          <button onClick={unsubscribeFromPush}>알림 끄기</button>
+          <p className="tt-body-sm tt-text-muted">알림이 활성화되어 있습니다.</p>
+          <button className="tt-btn tt-btn-secondary tt-btn-md" onClick={unsubscribeFromPush}>
+            알림 끄기
+          </button>
         </>
       ) : (
-        <button onClick={subscribeToPush}>알림 받기</button>
+        <button className="tt-btn tt-btn-primary tt-btn-md" onClick={subscribeToPush}>
+          알림 받기
+        </button>
       )}
     </div>
   );

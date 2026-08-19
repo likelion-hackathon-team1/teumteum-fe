@@ -1,0 +1,90 @@
+/* 혈당(CGM) 데이터 표시 전용 스타일. 분석/홈 화면을 실제로 구현할 때 해당 컴포넌트의 module.css로 이전. */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   16. CGM / Blood Sugar Data Display
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* BG value display */
+.tt-bg-display {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+.tt-bg-display__value {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--tt-cream);
+  letter-spacing: -2px;
+  line-height: 1;
+}
+.tt-bg-display__unit {
+  font-size: 14px;
+  color: var(--tt-muted);
+  font-weight: 500;
+}
+
+/* Graph container */
+.tt-cgm-card {
+  background: var(--tt-surface);
+  border-radius: var(--tt-radius-2xl);
+  padding: 20px;
+  border: 1px solid var(--tt-border);
+}
+
+/* CGM SVG color tokens (for use as attributes) */
+/*
+  Graph line (normal):    #C4C0FF  (--tt-primary)
+  Graph line (high):      #F39C12  (--tt-attention)
+  Stable zone fill:       rgba(46, 204, 113, 0.06)
+  Gradient start:         #C4C0FF at 0.22 opacity
+  Gradient end:           transparent
+  Grid line:              rgba(255,255,255,0.05)
+  Reference line (140):   rgba(243,156,18,0.28)  stroke-dasharray="4 4"
+*/
+
+/* Graph stats row */
+.tt-cgm-stats {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 14px;
+  border-top: 1px solid var(--tt-border);
+  margin-top: 14px;
+}
+.tt-cgm-stat {
+  text-align: center;
+}
+.tt-cgm-stat__value {
+  font-size: 16px;
+  font-weight: 800;
+}
+.tt-cgm-stat__label {
+  font-size: 11px;
+  color: var(--tt-muted);
+  margin-top: 2px;
+}
+
+/* Meal event row */
+.tt-meal-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--tt-border);
+}
+.tt-meal-row:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+.tt-meal-icon-wrap {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--tt-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+

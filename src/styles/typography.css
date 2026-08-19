@@ -1,0 +1,158 @@
+/* 타이포그래피 스케일(tt-heading/body/caption/label/stat 등). 전역 유틸리티. */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   5. Typography
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Display / Headings */
+.tt-display {
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 1;
+  color: var(--tt-cream);
+}
+
+.tt-heading-xl {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  color: var(--tt-cream);
+}
+
+.tt-heading-lg {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  line-height: 1.3;
+  color: var(--tt-cream);
+}
+
+.tt-heading-md {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.3;
+  color: var(--tt-cream);
+}
+
+.tt-heading-sm {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.4;
+  color: var(--tt-cream);
+}
+
+.tt-heading-xs {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  line-height: 1.4;
+  color: var(--tt-cream);
+}
+
+.tt-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--tt-cream);
+}
+
+/* Body */
+.tt-body-lg {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--tt-cream);
+}
+
+.tt-body {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.68;
+  color: var(--tt-cream);
+}
+
+.tt-body-sm {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--tt-cream);
+}
+
+/* Label */
+.tt-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--tt-cream);
+}
+
+.tt-label-sm {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--tt-cream);
+}
+
+/* Caption / Meta */
+.tt-caption {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--tt-muted);
+}
+
+.tt-caption-sm {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--tt-muted);
+}
+
+/* Overline (section labels) */
+.tt-overline {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--tt-muted);
+}
+
+/* Stat display (large numeric values) */
+.tt-stat {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1;
+  color: var(--tt-cream);
+}
+
+.tt-stat-sm {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1;
+  color: var(--tt-cream);
+}
+
+/* Color modifiers */
+.tt-text-primary {
+  color: var(--tt-primary);
+}
+.tt-text-cream {
+  color: var(--tt-cream);
+}
+.tt-text-muted {
+  color: var(--tt-muted);
+}
+.tt-text-stable {
+  color: var(--tt-stable);
+}
+.tt-text-attention {
+  color: var(--tt-attention);
+}
+.tt-text-danger {
+  color: var(--tt-danger);
+}
+.tt-text-gold {
+  color: var(--tt-gold);
+}
+

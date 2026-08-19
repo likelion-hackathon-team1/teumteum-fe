@@ -1,0 +1,35 @@
+.bottomNav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: calc(var(--tt-nav-height) + env(safe-area-inset-bottom, 0px));
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  border-top: 1px solid var(--tt-border);
+  background: var(--tt-bg);
+  flex-shrink: 0;
+}
+
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0 24px;
+  color: var(--tt-muted);
+  transition: color 0.2s;
+}
+
+.navItem.active {
+  color: var(--tt-primary);
+}
+
+.navItem span {
+  font-family: var(--tt-font);
+  font-size: 11px;
+  font-weight: 700;
+}

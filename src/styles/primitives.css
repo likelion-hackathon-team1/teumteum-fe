@@ -1,0 +1,419 @@
+/* 공용 UI 원자 컴포넌트: 카드, 버튼, 뱃지/칩/상태, 폼/인풋. 실제 <Button>/<Card> 컴포넌트를 만들기 전까지 전역 유지. */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   7. Surface & Card Components
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Base card */
+.tt-card {
+  background: var(--tt-surface);
+  border-radius: var(--tt-radius-2xl);
+  padding: 18px;
+  border: 1px solid var(--tt-border);
+}
+
+.tt-card-sm {
+  background: var(--tt-surface);
+  border-radius: var(--tt-radius-xl);
+  padding: 14px 16px;
+  border: 1px solid var(--tt-border);
+}
+
+.tt-card-bright {
+  background: var(--tt-bright);
+  border-radius: var(--tt-radius-lg);
+  padding: 14px;
+  border: 1px solid var(--tt-border);
+}
+
+/* Semantic card variants */
+.tt-card-primary {
+  background: var(--tt-surface);
+  border-radius: var(--tt-radius-2xl);
+  padding: 18px;
+  border: 1px solid var(--tt-primary-border);
+  background-image: linear-gradient(135deg, var(--tt-primary-glow) 0%, transparent 60%);
+}
+
+.tt-card-stable {
+  background: var(--tt-surface);
+  border-radius: var(--tt-radius-2xl);
+  padding: 18px;
+  border: 1px solid var(--tt-stable-border);
+}
+
+.tt-card-attention {
+  background: var(--tt-surface);
+  border-radius: var(--tt-radius-2xl);
+  padding: 18px;
+  border: 1px solid var(--tt-attention-border);
+}
+
+.tt-card-danger {
+  background: var(--tt-surface);
+  border-radius: var(--tt-radius-2xl);
+  padding: 18px;
+  border: 1px solid var(--tt-danger-border);
+}
+
+/* Stat card (used in 개입 기록 / analysis summary) */
+.tt-stat-card {
+  background: var(--tt-surface);
+  border-radius: var(--tt-radius-lg);
+  padding: 14px;
+  border: 1px solid var(--tt-border);
+  text-align: center;
+}
+
+/* Activity card (Home screen grid tiles) */
+.tt-activity-card {
+  background: var(--tt-surface);
+  border-radius: var(--tt-radius-xl);
+  padding: 16px;
+  border: 1px solid var(--tt-border);
+}
+
+.tt-activity-card .tt-progress-bar {
+  margin-top: 10px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--tt-bright);
+  overflow: hidden;
+}
+
+.tt-activity-card .tt-progress-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--tt-primary);
+  transition: width 0.4s ease;
+}
+
+.tt-activity-card .tt-progress-fill.complete {
+  background: var(--tt-stable);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   8. Button Variants
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Base shared styles */
+.tt-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--tt-font);
+  font-weight: 700;
+  border-radius: var(--tt-radius-lg);
+  border: none;
+  cursor: pointer;
+  transition:
+    opacity 0.15s,
+    transform 0.1s;
+  white-space: nowrap;
+}
+
+.tt-btn:active {
+  transform: scale(0.97);
+}
+.tt-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Height variants */
+.tt-btn-xl {
+  height: 56px;
+  font-size: 16px;
+  padding: 0 24px;
+}
+.tt-btn-lg {
+  height: 52px;
+  font-size: 15px;
+  padding: 0 22px;
+}
+.tt-btn-md {
+  height: 44px;
+  font-size: 14px;
+  padding: 0 18px;
+}
+.tt-btn-sm {
+  height: 36px;
+  font-size: 13px;
+  padding: 0 14px;
+}
+.tt-btn-xs {
+  height: 30px;
+  font-size: 12px;
+  padding: 0 10px;
+}
+
+/* Full width */
+.tt-btn-full {
+  width: 100%;
+}
+
+/* Primary */
+.tt-btn-primary {
+  background: var(--tt-primary);
+  color: var(--tt-bg);
+}
+.tt-btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* Danger / Spike */
+.tt-btn-danger {
+  background: var(--tt-danger);
+  color: #ffffff;
+}
+
+/* Secondary (outlined) */
+.tt-btn-secondary {
+  background: transparent;
+  color: var(--tt-muted);
+  border: 1px solid var(--tt-border);
+}
+
+/* Ghost (no border, dimmer text) */
+.tt-btn-ghost {
+  background: transparent;
+  color: var(--tt-muted);
+}
+.tt-btn-ghost:hover {
+  color: var(--tt-cream);
+}
+
+/* Surface (filled with surface color) */
+.tt-btn-surface {
+  background: var(--tt-surface);
+  color: var(--tt-cream);
+  border: 1px solid var(--tt-border);
+}
+
+/* Kakao login */
+.tt-btn-kakao {
+  background: var(--tt-kakao);
+  color: var(--tt-kakao-text);
+  font-size: 15px;
+  font-weight: 700;
+  height: 52px;
+  width: 100%;
+  border-radius: var(--tt-radius-lg);
+}
+
+/* Icon button */
+.tt-btn-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--tt-radius-md);
+  background: var(--tt-surface);
+  border: 1px solid var(--tt-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Quick reply chip (chat) */
+.tt-chip-reply {
+  padding: 8px 14px;
+  border-radius: var(--tt-radius-full);
+  background: var(--tt-primary-glow);
+  border: 1px solid var(--tt-primary-border);
+  color: var(--tt-primary);
+  font-family: var(--tt-font);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  display: inline-flex;
+  align-items: center;
+}
+.tt-chip-reply:hover {
+  opacity: 0.85;
+}
+
+/* Selection chip (onboarding) */
+.tt-chip-select {
+  padding: 10px 16px;
+  border-radius: 22px;
+  cursor: pointer;
+  font-family: var(--tt-font);
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid var(--tt-border);
+  background: var(--tt-surface);
+  color: var(--tt-muted);
+  transition: all 0.15s;
+}
+.tt-chip-select.selected {
+  border-color: var(--tt-primary-border);
+  background: var(--tt-primary-glow);
+  color: var(--tt-primary);
+}
+
+/* Action chip (home notification card) */
+.tt-chip-action {
+  padding: 8px 14px;
+  border-radius: var(--tt-radius-full);
+  background: var(--tt-primary-glow);
+  border: 1px solid var(--tt-primary-border);
+  color: var(--tt-primary);
+  font-family: var(--tt-font);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   9. Badge, Chip & Status Indicators
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* BG status badge */
+.tt-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  border-radius: var(--tt-radius-full);
+}
+
+.tt-status-badge.stable {
+  background: var(--tt-stable-glow);
+  border: 1px solid var(--tt-stable-border);
+  color: var(--tt-stable);
+}
+.tt-status-badge.attention {
+  background: var(--tt-attention-glow);
+  border: 1px solid var(--tt-attention-border);
+  color: var(--tt-attention);
+}
+.tt-status-badge.danger {
+  background: var(--tt-danger-glow);
+  border: 1px solid var(--tt-danger-border);
+  color: var(--tt-danger);
+}
+
+.tt-status-badge .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.tt-status-badge span {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Inline value badge (e.g., 158 mg/dL in chat header) */
+.tt-value-badge {
+  border-radius: var(--tt-radius-sm);
+  padding: 6px 10px;
+  text-align: center;
+}
+.tt-value-badge.attention {
+  background: var(--tt-attention-glow);
+  border: 1px solid var(--tt-attention-border);
+}
+.tt-value-badge.stable {
+  background: var(--tt-stable-glow);
+  border: 1px solid var(--tt-stable-border);
+}
+
+/* Inline text tag (timeline response type, etc.) */
+.tt-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--tt-radius-xs);
+}
+.tt-tag-primary {
+  color: var(--tt-primary);
+  background: var(--tt-primary-glow);
+}
+.tt-tag-stable {
+  color: var(--tt-stable);
+  background: var(--tt-stable-glow);
+}
+.tt-tag-attention {
+  color: var(--tt-attention);
+  background: var(--tt-attention-glow);
+}
+.tt-tag-danger {
+  color: var(--tt-danger);
+  background: var(--tt-danger-glow);
+}
+.tt-tag-muted {
+  color: var(--tt-muted);
+  background: var(--tt-bright);
+}
+
+/* Online presence dot */
+.tt-online-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--tt-stable);
+  border: 2px solid var(--tt-bg);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   10. Form & Input
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.tt-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--tt-surface);
+  border-radius: var(--tt-radius-full);
+  padding: 10px 10px 10px 18px;
+  border: 1px solid var(--tt-border);
+  transition: border-color 0.2s;
+}
+.tt-input-wrap:focus-within {
+  border-color: var(--tt-primary-border);
+}
+
+.tt-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--tt-cream);
+  font-size: 15px;
+  font-family: var(--tt-font);
+  line-height: 1.5;
+}
+
+.tt-input::placeholder {
+  color: var(--tt-muted);
+}
+
+/* Send button inside input */
+.tt-send-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.tt-send-btn.active {
+  background: var(--tt-primary);
+}
+.tt-send-btn.inactive {
+  background: var(--tt-bright);
+  cursor: default;
+}
+

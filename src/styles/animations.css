@@ -1,0 +1,118 @@
+/* 키프레임 + tt-anim-* 유틸리티. 여러 화면에서 재사용되는 전역 애니메이션. */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   4. Keyframe Animations
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@keyframes tt-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes tt-fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tt-fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tt-scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes tt-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+@keyframes tt-slideDownBanner {
+  from {
+    opacity: 0;
+    transform: translateY(-110%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tt-slideUpSheet {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tt-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Animation utility classes */
+.tt-anim-fade-in {
+  animation: tt-fadeIn 0.3s both;
+}
+.tt-anim-fade-up {
+  animation: tt-fadeUp 0.4s both;
+}
+.tt-anim-fade-up-1 {
+  animation: tt-fadeUp 0.6s 0.1s both;
+}
+.tt-anim-fade-up-2 {
+  animation: tt-fadeUp 0.6s 0.2s both;
+}
+.tt-anim-fade-up-3 {
+  animation: tt-fadeUp 0.6s 0.3s both;
+}
+.tt-anim-fade-up-4 {
+  animation: tt-fadeUp 0.6s 0.4s both;
+}
+.tt-anim-fade-up-5 {
+  animation: tt-fadeUp 0.6s 0.5s both;
+}
+.tt-anim-pulse {
+  animation: tt-pulse 2.5s infinite;
+}
+.tt-anim-scale-in {
+  animation: tt-scaleIn 0.3s both;
+}
+

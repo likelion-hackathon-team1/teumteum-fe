@@ -1,20 +1,10 @@
 import type { Metadata, Viewport } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import { ServiceWorkerRegister } from '@/components/ServiceWorkerRegister';
+import { Nav } from '@/components/Nav';
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
-
 export const metadata: Metadata = {
-  title: 'teumteum',
+  title: '틈틈',
   description: 'teumteum | 틈틈 서비스',
   appleWebApp: {
     capable: true,
@@ -22,6 +12,7 @@ export const metadata: Metadata = {
     title: '틈틈',
   },
   icons: {
+    icon: '/icon.png',
     apple: '/logo-192.png',
   },
   other: {
@@ -30,15 +21,19 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#000000',
+  themeColor: '#111224',
+  viewportFit: 'cover',
 };
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>
+    <html lang="ko" suppressHydrationWarning>
+      <body id="root">
         <ServiceWorkerRegister />
-        {children}
+        <div className="tt-app">
+          <div className="tt-scroll-area">{children}</div>
+          <Nav />
+        </div>
       </body>
     </html>
   );

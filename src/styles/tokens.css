@@ -1,0 +1,103 @@
+/* 틈틈 디자인 토큰 — 폰트 import + CSS 변수(:root). 전역, 절대 컴포넌트로 옮기지 않음. */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   1. Font Import
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   2. Design Tokens (CSS Custom Properties)
+
+   --tt-bg           앱 배경 (App background)
+   --tt-surface      카드 배경 (Card surface)
+   --tt-bright       밝은 서피스 (Elevated surface)
+   --tt-primary      주요 색상 - 웜 라벤더 (Primary - Warm Lavender)
+   --tt-cream        주요 텍스트 (Primary text)
+   --tt-muted        보조 텍스트 (Secondary text)
+   --tt-stable       안정 혈당 / 성공 (Normal BG / Success)
+   --tt-attention    주의 혈당 / 경고 (High BG / Warning)
+   --tt-danger       위험 혈당 / 에러 (Spike BG / Error)
+   --tt-gold         강조 골드 (Accent gold)
+   --tt-border       기본 보더 (Default border)
+   ───────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Core Surfaces */
+  --tt-bg: #111224;
+  --tt-surface: #191a30;
+  --tt-bright: #252640;
+
+  /* Primary (Warm Lavender) */
+  --tt-primary: #c4c0ff;
+  --tt-primary-glow: rgba(196, 192, 255, 0.12);
+  --tt-primary-border: rgba(196, 192, 255, 0.2);
+
+  /* Text */
+  --tt-cream: #f5f5f0;
+  --tt-muted: rgba(245, 245, 240, 0.42);
+
+  /* Semantic: Stable / Success */
+  --tt-stable: #2ecc71;
+  --tt-stable-glow: rgba(46, 204, 113, 0.1);
+  --tt-stable-border: rgba(46, 204, 113, 0.2);
+
+  /* Semantic: Attention / Warning */
+  --tt-attention: #f39c12;
+  --tt-attention-glow: rgba(243, 156, 18, 0.1);
+  --tt-attention-border: rgba(243, 156, 18, 0.2);
+
+  /* Semantic: Danger / Error */
+  --tt-danger: #e74c3c;
+  --tt-danger-glow: rgba(231, 76, 60, 0.1);
+  --tt-danger-border: rgba(231, 76, 60, 0.2);
+
+  /* Accent */
+  --tt-gold: #e8c87a;
+
+  /* Border */
+  --tt-border: rgba(255, 255, 255, 0.07);
+
+  /* Kakao */
+  --tt-kakao: #fee500;
+  --tt-kakao-text: #3a1d1d;
+
+  /* Typography */
+  --tt-font: 'Plus Jakarta Sans', -apple-system, sans-serif;
+
+  /* Border Radius Scale */
+  --tt-radius-xs: 8px;
+  --tt-radius-sm: 10px;
+  --tt-radius-md: 12px;
+  --tt-radius-lg: 14px;
+  --tt-radius-xl: 16px;
+  --tt-radius-2xl: 18px;
+  --tt-radius-3xl: 20px;
+  --tt-radius-4xl: 24px;
+  --tt-radius-full: 9999px;
+
+  /* Spacing Scale */
+  --tt-space-1: 4px;
+  --tt-space-2: 8px;
+  --tt-space-3: 12px;
+  --tt-space-4: 16px;
+  --tt-space-5: 20px;
+  --tt-space-6: 24px;
+  --tt-space-7: 28px;
+  --tt-space-8: 32px;
+
+  /* Shadow */
+  --tt-shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --tt-shadow-md: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --tt-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
+
+  /* Mobile App Container */
+  --tt-app-ratio: 3 / 4; /* portrait tablet aspect ratio, e.g. iPad 768x1024 */
+  --tt-app-width-min: 600px;
+  --tt-app-width-max: 1024px;
+  --tt-nav-height: 64px;
+
+  /* Backdrop shown outside the centered app column on wide viewports */
+  --tt-backdrop: #08080f;
+}
+
