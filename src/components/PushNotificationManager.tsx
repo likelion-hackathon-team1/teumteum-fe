@@ -15,17 +15,23 @@ function urlBase64ToUint8Array(base64String: string) {
   return outputArray;
 }
 
+type Status = 'checking' | 'unsupported' | 'ready';
+
 export function PushNotificationManager() {
-  const [isSupported, setIsSupported] = useState(false);
+  const [status, setStatus] = useState<Status>('checking');
   const [subscription, setSubscription] = useState<PushSubscription | null>(null);
 
   useEffect(() => {
-    if (!('serviceWorker' in navigator) || !('PushManager' in window)) return;
+    if (!('serviceWorker' in navigator) || !('PushManager' in window)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setStatus('unsupported');
+      return;
+    }
 
     navigator.serviceWorker.ready.then(async registration => {
       const existing = await registration.pushManager.getSubscription();
-      setIsSupported(true);
       setSubscription(existing);
+      setStatus('ready');
     });
   }, []);
 
@@ -44,7 +50,11 @@ export function PushNotificationManager() {
     setSubscription(null);
   }
 
-  if (!isSupported) {
+  if (status === 'checking') {
+    return null;
+  }
+
+  if (status === 'unsupported') {
     return <p className="tt-body-sm tt-text-muted">이 브라우저는 푸시 알림을 지원하지 않습니다.</p>;
   }
 
