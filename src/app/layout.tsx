@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { ServiceWorkerRegister } from '@/components/ServiceWorkerRegister';
 import { MSWProvider } from '@/components/MSWProvider';
 import { Nav } from '@/components/Nav';
+import { SplashScreen } from '@/components/SplashScreen';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -30,13 +31,19 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html lang="ko" suppressHydrationWarning>
       <body id="root">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(sessionStorage.getItem('tt-splash-shown')){document.documentElement.setAttribute('data-splash-skip','1')}}catch(e){}`,
+          }}
+        />
         <ServiceWorkerRegister />
-        <MSWProvider>
-          <div className="tt-app">
+        <div className="tt-app">
+          <MSWProvider>
             <div className="tt-scroll-area">{children}</div>
             <Nav />
-          </div>
-        </MSWProvider>
+          </MSWProvider>
+          <SplashScreen />
+        </div>
       </body>
     </html>
   );

@@ -90,7 +90,6 @@ textarea::placeholder {
   }
 }
 
-
 /* App header */
 .tt-app-header {
   display: flex;
@@ -119,3 +118,6 @@ textarea::placeholder {
   letter-spacing: -0.5px;
 }
 
+html[data-splash-skip='1'] #tt-splash-root {
+  display: none;
+}
