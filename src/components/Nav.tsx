@@ -68,14 +68,8 @@ const NAV_ITEMS = [
   },
 ] as const;
 
-const NAV_HIDDEN_ROUTES = ['/login', '/onboarding'];
-
 export function Nav() {
   const pathname = usePathname();
-
-  if (NAV_HIDDEN_ROUTES.includes(pathname)) {
-    return null;
-  }
 
   return (
     <nav className={styles.bottomNav}>

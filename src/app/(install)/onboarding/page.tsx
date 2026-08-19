@@ -3,7 +3,7 @@
 import { useLayoutEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { isLoggedIn, isOnboarded, setOnboarded } from '@/features/auth/session';
+import { isLoggedIn, setOnboarded } from '@/features/auth/session';
 import styles from './page.module.css';
 
 export default function OnboardingPage() {
@@ -12,10 +12,6 @@ export default function OnboardingPage() {
   useLayoutEffect(() => {
     if (!isLoggedIn()) {
       router.replace('/login');
-      return;
-    }
-    if (isOnboarded()) {
-      router.replace('/');
     }
   }, [router]);
 

@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { AppProviders } from './_providers/AppProviders';
-import { Nav } from '@/components/Nav';
 import { SplashScreen } from './_components/SplashScreen/SplashScreen';
-import { OnboardingGuard } from '@/features/auth/OnboardingGuard';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -36,12 +34,8 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
             __html: `try{if(sessionStorage.getItem('tt-splash-shown')){document.documentElement.setAttribute('data-splash-skip','1')}}catch(e){}`,
           }}
         />
-        <OnboardingGuard />
         <div className="tt-app">
-          <AppProviders>
-            <div className="tt-scroll-area">{children}</div>
-            <Nav />
-          </AppProviders>
+          <AppProviders>{children}</AppProviders>
           <SplashScreen />
         </div>
       </body>
