@@ -1,0 +1,262 @@
+/* 아직 쓰는 화면이 없어 전역으로 대기 중인 UI 원자: 칩, 뱃지/태그/상태, 폼/인풋, stat·activity 카드.
+   실제로 쓰이는 시점에 shared/ui/의 컴포넌트로 옮긴다. (Button·Card는 이전 완료) */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   7. Surface & Card Components
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Stat card (used in 개입 기록 / analysis summary) */
+.tt-stat-card {
+  background: var(--tt-surface);
+  border-radius: var(--tt-radius-lg);
+  padding: 14px;
+  border: 1px solid var(--tt-border);
+  text-align: center;
+}
+
+/* Activity card (Home screen grid tiles) */
+.tt-activity-card {
+  background: var(--tt-surface);
+  border-radius: var(--tt-radius-xl);
+  padding: 16px;
+  border: 1px solid var(--tt-border);
+}
+
+.tt-activity-card .tt-progress-bar {
+  margin-top: 10px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--tt-bright);
+  overflow: hidden;
+}
+
+.tt-activity-card .tt-progress-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--tt-primary);
+  transition: width 0.4s ease;
+}
+
+.tt-activity-card .tt-progress-fill.complete {
+  background: var(--tt-stable);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   8. Button Variants
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Icon button */
+.tt-btn-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--tt-radius-md);
+  background: var(--tt-surface);
+  border: 1px solid var(--tt-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Quick reply chip (chat) */
+.tt-chip-reply {
+  padding: 8px 14px;
+  border-radius: var(--tt-radius-full);
+  background: var(--tt-primary-glow);
+  border: 1px solid var(--tt-primary-border);
+  color: var(--tt-primary);
+  font-family: var(--tt-font);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  display: inline-flex;
+  align-items: center;
+}
+.tt-chip-reply:hover {
+  opacity: 0.85;
+}
+
+/* Selection chip (onboarding) */
+.tt-chip-select {
+  padding: 10px 16px;
+  border-radius: 22px;
+  cursor: pointer;
+  font-family: var(--tt-font);
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid var(--tt-border);
+  background: var(--tt-surface);
+  color: var(--tt-muted);
+  transition: all 0.15s;
+}
+.tt-chip-select.selected {
+  border-color: var(--tt-primary-border);
+  background: var(--tt-primary-glow);
+  color: var(--tt-primary);
+}
+
+/* Action chip (home notification card) */
+.tt-chip-action {
+  padding: 8px 14px;
+  border-radius: var(--tt-radius-full);
+  background: var(--tt-primary-glow);
+  border: 1px solid var(--tt-primary-border);
+  color: var(--tt-primary);
+  font-family: var(--tt-font);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   9. Badge, Chip & Status Indicators
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* BG status badge */
+.tt-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  border-radius: var(--tt-radius-full);
+}
+
+.tt-status-badge.stable {
+  background: var(--tt-stable-glow);
+  border: 1px solid var(--tt-stable-border);
+  color: var(--tt-stable);
+}
+.tt-status-badge.attention {
+  background: var(--tt-attention-glow);
+  border: 1px solid var(--tt-attention-border);
+  color: var(--tt-attention);
+}
+.tt-status-badge.danger {
+  background: var(--tt-danger-glow);
+  border: 1px solid var(--tt-danger-border);
+  color: var(--tt-danger);
+}
+
+.tt-status-badge .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.tt-status-badge span {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Inline value badge (e.g., 158 mg/dL in chat header) */
+.tt-value-badge {
+  border-radius: var(--tt-radius-sm);
+  padding: 6px 10px;
+  text-align: center;
+}
+.tt-value-badge.attention {
+  background: var(--tt-attention-glow);
+  border: 1px solid var(--tt-attention-border);
+}
+.tt-value-badge.stable {
+  background: var(--tt-stable-glow);
+  border: 1px solid var(--tt-stable-border);
+}
+
+/* Inline text tag (timeline response type, etc.) */
+.tt-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--tt-radius-xs);
+}
+.tt-tag-primary {
+  color: var(--tt-primary);
+  background: var(--tt-primary-glow);
+}
+.tt-tag-stable {
+  color: var(--tt-stable);
+  background: var(--tt-stable-glow);
+}
+.tt-tag-attention {
+  color: var(--tt-attention);
+  background: var(--tt-attention-glow);
+}
+.tt-tag-danger {
+  color: var(--tt-danger);
+  background: var(--tt-danger-glow);
+}
+.tt-tag-muted {
+  color: var(--tt-muted);
+  background: var(--tt-bright);
+}
+
+/* Online presence dot */
+.tt-online-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--tt-stable);
+  border: 2px solid var(--tt-bg);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   10. Form & Input
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.tt-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--tt-surface);
+  border-radius: var(--tt-radius-full);
+  padding: 10px 10px 10px 18px;
+  border: 1px solid var(--tt-border);
+  transition: border-color 0.2s;
+}
+.tt-input-wrap:focus-within {
+  border-color: var(--tt-primary-border);
+}
+
+.tt-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--tt-cream);
+  font-size: 15px;
+  font-family: var(--tt-font);
+  line-height: 1.5;
+}
+
+.tt-input::placeholder {
+  color: var(--tt-muted);
+}
+
+/* Send button inside input */
+.tt-send-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.tt-send-btn.active {
+  background: var(--tt-primary);
+}
+.tt-send-btn.inactive {
+  background: var(--tt-bright);
+  cursor: default;
+}
+

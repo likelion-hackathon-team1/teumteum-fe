@@ -1,9 +1,6 @@
 import type { Metadata, Viewport } from 'next';
-import { ServiceWorkerRegister } from '@/components/ServiceWorkerRegister';
-import { MSWProvider } from '@/components/MSWProvider';
-import { Nav } from '@/components/Nav';
-import { SplashScreen } from '@/components/SplashScreen';
-import { InstallRedirect } from '@/components/InstallRedirect';
+import { AppProviders } from './_providers/AppProviders';
+import { SplashScreen } from './_components/SplashScreen/SplashScreen';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -37,13 +34,8 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
             __html: `try{if(sessionStorage.getItem('tt-splash-shown')){document.documentElement.setAttribute('data-splash-skip','1')}}catch(e){}`,
           }}
         />
-        <ServiceWorkerRegister />
-        <InstallRedirect />
         <div className="tt-app">
-          <MSWProvider>
-            <div className="tt-scroll-area">{children}</div>
-            <Nav />
-          </MSWProvider>
+          <AppProviders>{children}</AppProviders>
           <SplashScreen />
         </div>
       </body>

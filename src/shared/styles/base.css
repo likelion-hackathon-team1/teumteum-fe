@@ -1,0 +1,95 @@
+/* 리셋 + 앱 셸(#root/.tt-app 반응형 컨테이너, 공용 앱 헤더). 전역. */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   3. Base / Reset
+   ───────────────────────────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--tt-backdrop);
+  font-family: var(--tt-font);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--tt-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  font-family: var(--tt-font);
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+input,
+textarea {
+  font-family: var(--tt-font);
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--tt-cream);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--tt-muted);
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Mobile app container */
+#root {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: var(--tt-backdrop);
+}
+
+.tt-app {
+  background: var(--tt-bg);
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh; /* installed PWA on iOS resizes the visible viewport as browser chrome hides; 100vh alone leaves the bottom nav under the home indicator */
+  display: flex;
+  flex-direction: column;
+  font-family: var(--tt-font);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Above mobile breakpoint, derive width from the viewport height at a tablet
+   aspect ratio instead of a fixed px value — that way any window size scales
+   proportionally instead of snapping to one hardcoded width. */
+@media (min-width: 768px) {
+  .tt-app {
+    width: auto;
+    aspect-ratio: var(--tt-app-ratio);
+    max-width: min(var(--tt-app-width-max), 100vw);
+    min-width: min(var(--tt-app-width-min), 100vw);
+  }
+}
+
+html[data-splash-skip='1'] #tt-splash-root {
+  display: none;
+}
