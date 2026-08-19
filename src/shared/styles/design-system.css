@@ -2,12 +2,13 @@
    틈틈 (TeumTeum) Design System
    Version 1.0 · 2026
 
-   Figma Make에서 가져온 단일 CSS를 관심사별 파일로 분리.(src/styles/)
+   Figma Make에서 가져온 단일 CSS를 관심사별 파일로 분리.(src/shared/styles/)
    전역으로 계속 남는 파일(tokens/base/animations/typography/utilities/primitives)과,
    특정 화면을 실제로 구현할 때 해당 컴포넌트의 .module.css로 옮겨갈 파일
    (notifications/chat/cgm/onboarding)이 섞여 있는 상태. — 각 파일 상단 주석 참고.
 
-   바텀 네비게이션은 이미 src/components/Nav.module.css로 이전 완료.
+   이전 완료: 바텀 네비게이션 → app/(main)/_components/BottomNav/BottomNav.module.css
+             스플래시     → app/_components/SplashScreen/SplashScreen.module.css
    ═══════════════════════════════════════════════════════════════════════════════ */
 
 /* global*/

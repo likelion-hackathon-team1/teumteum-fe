@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import styles from './Nav.module.css';
+import styles from './BottomNav.module.css';
 
 const NAV_ITEMS = [
   {
@@ -68,7 +68,7 @@ const NAV_ITEMS = [
   },
 ] as const;
 
-export function Nav() {
+export function BottomNav() {
   const pathname = usePathname();
 
   return (
