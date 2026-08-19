@@ -1,3 +1,4 @@
+import { PushNotificationManager } from '@/components/PushNotificationManager';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
         <div className={styles.intro}>
           <h1>틈틈</h1>
         </div>
+        <PushNotificationManager />
       </main>
     </div>
   );
