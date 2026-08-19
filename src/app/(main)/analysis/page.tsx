@@ -1,9 +1,9 @@
+import { PageHeader } from '../_components/PageHeader/PageHeader';
+
 export default function AnalysisPage() {
   return (
     <div className="tt-screen">
-      <div className="tt-page-header">
-        <p className="tt-heading-md">분석</p>
-      </div>
+      <PageHeader title="분석" />
       <p className="tt-body tt-text-muted">준비 중이에요.</p>
     </div>
   );

@@ -20,14 +20,6 @@
   min-height: 0;
 }
 
-.tt-page-header {
-  margin-bottom: 22px;
-}
-
-.tt-page-header .tt-heading-md {
-  margin-bottom: 4px;
-}
-
 .tt-divider {
   height: 1px;
   background: var(--tt-border);
