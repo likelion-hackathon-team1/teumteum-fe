@@ -4,6 +4,7 @@ import { useLayoutEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { isLoggedIn, isOnboarded, setLoggedIn } from '@/features/auth/session';
+import { Button } from '@/shared/ui/Button/Button';
 import styles from './page.module.css';
 
 const FEATURES = [
@@ -48,7 +49,7 @@ export default function LoginPage() {
 
       <div className={styles.bottom}>
         <p className={`tt-caption ${styles.hint}`}>로그인하고 나만의 케어를 시작해보세요</p>
-        <button className="tt-btn tt-btn-kakao" onClick={handleKakaoLogin}>
+        <Button variant="kakao" onClick={handleKakaoLogin}>
           <svg width="20" height="20" viewBox="0 0 40 40" fill="none">
             <path
               fillRule="evenodd"
@@ -58,7 +59,7 @@ export default function LoginPage() {
             />
           </svg>
           카카오로 시작하기
-        </button>
+        </Button>
         <p className={`tt-caption-sm ${styles.terms}`}>
           가입 시 이용약관 및 개인정보처리방침에 동의하게 됩니다
         </p>

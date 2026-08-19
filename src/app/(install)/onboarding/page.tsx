@@ -4,6 +4,7 @@ import { useLayoutEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { isLoggedIn, setOnboarded } from '@/features/auth/session';
+import { Button } from '@/shared/ui/Button/Button';
 import styles from './page.module.css';
 
 export default function OnboardingPage() {
@@ -45,9 +46,9 @@ export default function OnboardingPage() {
       </div>
 
       <div className={styles.footer}>
-        <button className="tt-btn tt-btn-primary tt-btn-lg tt-btn-full" onClick={handleStart}>
+        <Button size="lg" full onClick={handleStart}>
           시작하기
-        </button>
+        </Button>
       </div>
     </div>
   );

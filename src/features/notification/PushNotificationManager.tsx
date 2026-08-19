@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { Button } from '@/shared/ui/Button/Button';
 
 function urlBase64ToUint8Array(base64String: string) {
   const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
@@ -63,14 +64,12 @@ export function PushNotificationManager() {
       {subscription ? (
         <>
           <p className="tt-body-sm tt-text-muted">알림이 활성화되어 있습니다.</p>
-          <button className="tt-btn tt-btn-secondary tt-btn-md" onClick={unsubscribeFromPush}>
+          <Button variant="secondary" onClick={unsubscribeFromPush}>
             알림 끄기
-          </button>
+          </Button>
         </>
       ) : (
-        <button className="tt-btn tt-btn-primary tt-btn-md" onClick={subscribeToPush}>
-          알림 받기
-        </button>
+        <Button onClick={subscribeToPush}>알림 받기</Button>
       )}
     </div>
   );

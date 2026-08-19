@@ -205,8 +205,8 @@
        <h3 class="tt-heading-sm">제목</h3>
        <p class="tt-body tt-text-muted">메시지</p>
        <div class="tt-modal-actions">
-         <button class="tt-btn tt-btn-lg tt-btn-full tt-btn-danger">CTA</button>
-         <button class="tt-btn tt-btn-lg tt-btn-full tt-btn-secondary">취소</button>
+         <Button variant="danger" size="lg" full>CTA</Button>
+         <Button variant="secondary" size="lg" full>취소</Button>
        </div>
      </div>
    </div>
