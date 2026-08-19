@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { ServiceWorkerRegister } from '@/components/ServiceWorkerRegister';
-import { MSWProvider } from '@/components/MSWProvider';
+import { AppProviders } from './_providers/AppProviders';
 import { Nav } from '@/components/Nav';
 import { SplashScreen } from '@/components/SplashScreen';
 import { OnboardingGuard } from '@/features/auth/OnboardingGuard';
@@ -37,13 +36,12 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
             __html: `try{if(sessionStorage.getItem('tt-splash-shown')){document.documentElement.setAttribute('data-splash-skip','1')}}catch(e){}`,
           }}
         />
-        <ServiceWorkerRegister />
         <OnboardingGuard />
         <div className="tt-app">
-          <MSWProvider>
+          <AppProviders>
             <div className="tt-scroll-area">{children}</div>
             <Nav />
-          </MSWProvider>
+          </AppProviders>
           <SplashScreen />
         </div>
       </body>
