@@ -1,5 +1,6 @@
 const swUrl = new URL(location.href);
 if (swUrl.searchParams.get('enableApiMocking') === 'true') {
+  self.registration.unregister = () => Promise.resolve(false);
   importScripts('/mockServiceWorker.js');
 }
 
