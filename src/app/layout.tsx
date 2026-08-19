@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { AppProviders } from './_providers/AppProviders';
 import { Nav } from '@/components/Nav';
-import { SplashScreen } from '@/components/SplashScreen';
+import { SplashScreen } from './_components/SplashScreen/SplashScreen';
 import { OnboardingGuard } from '@/features/auth/OnboardingGuard';
 import './globals.css';
 
