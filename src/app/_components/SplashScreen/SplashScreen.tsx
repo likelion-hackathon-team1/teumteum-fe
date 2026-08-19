@@ -2,6 +2,7 @@
 
 import { useLayoutEffect, useState } from 'react';
 import Image from 'next/image';
+import { sessionStore } from '@/shared/lib/storage';
 import styles from './SplashScreen.module.css';
 
 const STORAGE_KEY = 'tt-splash-shown';
@@ -18,8 +19,7 @@ const STARS = [
 
 type Phase = 'shown' | 'leaving' | 'hidden';
 
-const alreadyShownThisLoad =
-  typeof window !== 'undefined' ? sessionStorage.getItem(STORAGE_KEY) : null;
+const alreadyShownThisLoad = sessionStore.get(STORAGE_KEY);
 
 export function SplashScreen() {
   const [phase, setPhase] = useState<Phase>('shown');
@@ -30,7 +30,7 @@ export function SplashScreen() {
       setPhase('hidden');
       return;
     }
-    sessionStorage.setItem(STORAGE_KEY, '1');
+    sessionStore.set(STORAGE_KEY, '1');
 
     const leaveTimer = setTimeout(() => setPhase('leaving'), VISIBLE_MS);
     return () => clearTimeout(leaveTimer);
