@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { PushNotificationManager } from '@/components/PushNotificationManager';
+import { PushNotificationManager } from '@/features/notification/PushNotificationManager';
 
 export default function Home() {
   return (

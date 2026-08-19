@@ -3,7 +3,7 @@
 import { useLayoutEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { isLoggedIn, isOnboarded, setLoggedIn } from '@/lib/auth';
+import { isLoggedIn, isOnboarded, setLoggedIn } from '@/features/auth/session';
 import styles from './page.module.css';
 
 const FEATURES = [

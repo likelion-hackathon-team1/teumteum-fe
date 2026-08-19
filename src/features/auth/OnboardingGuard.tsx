@@ -2,11 +2,11 @@
 
 import { useLayoutEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { isOnboarded } from '@/lib/auth';
+import { isOnboarded } from './session';
 
 const INSTALL_FLOW_ROUTES = ['/login', '/onboarding'];
 
-export function InstallRedirect() {
+export function OnboardingGuard() {
   const router = useRouter();
   const pathname = usePathname();
 

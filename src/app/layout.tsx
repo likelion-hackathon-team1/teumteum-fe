@@ -3,7 +3,7 @@ import { ServiceWorkerRegister } from '@/components/ServiceWorkerRegister';
 import { MSWProvider } from '@/components/MSWProvider';
 import { Nav } from '@/components/Nav';
 import { SplashScreen } from '@/components/SplashScreen';
-import { InstallRedirect } from '@/components/InstallRedirect';
+import { OnboardingGuard } from '@/features/auth/OnboardingGuard';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -38,7 +38,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
           }}
         />
         <ServiceWorkerRegister />
-        <InstallRedirect />
+        <OnboardingGuard />
         <div className="tt-app">
           <MSWProvider>
             <div className="tt-scroll-area">{children}</div>
