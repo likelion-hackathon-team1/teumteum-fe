@@ -1,3 +1,8 @@
+const swUrl = new URL(location.href);
+if (swUrl.searchParams.get('enableApiMocking') === 'true') {
+  importScripts('/mockServiceWorker.js');
+}
+
 self.addEventListener('push', function (event) {
   if (event.data) {
     const data = event.data.json();

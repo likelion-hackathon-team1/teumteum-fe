@@ -1,13 +1,14 @@
 'use client';
 
 import { useEffect } from 'react';
+import { getServiceWorkerUrl } from '@/mocks/service-worker-url';
 
 export function ServiceWorkerRegister() {
   useEffect(() => {
     if (!('serviceWorker' in navigator)) return;
 
     navigator.serviceWorker
-      .register('/service-worker.js', {
+      .register(getServiceWorkerUrl(), {
         scope: '/',
         updateViaCache: 'none',
       })

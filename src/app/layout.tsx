@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { ServiceWorkerRegister } from '@/components/ServiceWorkerRegister';
+import { MSWProvider } from '@/components/MSWProvider';
 import { Nav } from '@/components/Nav';
 import './globals.css';
 
@@ -30,10 +31,12 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
     <html lang="ko" suppressHydrationWarning>
       <body id="root">
         <ServiceWorkerRegister />
-        <div className="tt-app">
-          <div className="tt-scroll-area">{children}</div>
-          <Nav />
-        </div>
+        <MSWProvider>
+          <div className="tt-app">
+            <div className="tt-scroll-area">{children}</div>
+            <Nav />
+          </div>
+        </MSWProvider>
       </body>
     </html>
   );
